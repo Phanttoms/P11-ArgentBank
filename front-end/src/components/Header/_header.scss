@@ -1,0 +1,33 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 20px;
+	&__logo {
+		display: flex;
+		align-items: center;
+		font-weight: bold;
+		color: #2c3e50;
+		margin-right: 0.5rem;
+		&:hover {
+			text-decoration: underline;
+		}
+		&--image {
+			max-width: 100%;
+			width: 200px;
+		}
+		&--title {
+			border: 0;
+			clip: rect(1px, 1px, 1px, 1px); /* 1 */
+			-webkit-clip-path: inset(50%);
+			clip-path: inset(50%); /* 2 */
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+			white-space: nowrap; /* 3 */
+		}
+	}
+}

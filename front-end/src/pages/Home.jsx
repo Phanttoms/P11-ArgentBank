@@ -5,7 +5,7 @@ function Home() {
 				<a class="main-nav-logo" href="./index.html">
 					<img
 						class="main-nav-logo-image"
-						src="./img/argentBankLogo.png"
+						src="../assets/images/argentBankLogo.png"
 						alt="Argent Bank Logo"
 					/>
 					<h1 class="sr-only">Argent Bank</h1>
@@ -31,7 +31,7 @@ function Home() {
 					<h2 class="sr-only">Features</h2>
 					<div class="feature-item">
 						<img
-							src="./img/icon-chat.png"
+							src="../src/assets/images/icon-chat.png"
 							alt="Chat Icon"
 							class="feature-icon"
 						/>

@@ -1,6 +1,6 @@
 import { loginSuccess } from "../reducers/authReducers";
 
-export const FetchHandleLogin = async (email, password, dispatch, navigate) => {
+export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
 	try {
 		const response = await fetch("http://localhost:3001/api/v1/user/login", {
 			method: "POST",

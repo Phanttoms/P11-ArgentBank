@@ -19,7 +19,7 @@ export default function LoginForm() {
 					<label htmlFor="remember-me">Remember me</label>
 				</div>
 				{/* En attendant d'ajouter la logic de form */}
-				<a href="/" className="login__form--button">
+				<a href="user" className="login__form--button">
 					Sign In
 				</a>
 				{/* <button className="login__form--button">Sign In</button> */}

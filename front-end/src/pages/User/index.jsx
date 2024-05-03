@@ -33,7 +33,7 @@ export default function User() {
 						<br />
 						{profile.firstName} {profile.lastName} !
 					</h1>
-					<button className="edit-button">Edit Name</button>
+					<EditButton />
 				</div>
 				<h2 className="sr-only">Accounts</h2>
 				<section className="account">

@@ -38,14 +38,8 @@ export const fetchUserData = async (token, dispatch, navigate) => {
 	}
 };
 
-export const editUserName = async (
-	newUserName,
-	token,
-	dispatch,
-	setError,
-	setToggleEdit
-) => {
-	if (!newUserName) {
+export const editUserName = async (newName, token, dispatch, setError) => {
+	if (!newName) {
 		setError("The field cannot be empty.");
 		return;
 	}
@@ -56,14 +50,13 @@ export const editUserName = async (
 				"Content-Type": "application/json",
 				Authorization: `Bearer ${token}`,
 			},
-			body: JSON.stringify({ userName: newUserName }),
+			body: JSON.stringify({ userName: newName }),
 		});
 		if (!response) {
 			throw new Error("Échec de la mise à jour du nom d'utilisateur");
 		}
 		const data = await response.json();
 		dispatch(setGetProfile({ data }));
-		setToggleEdit(false);
 	} catch (error) {
 		console.log(error);
 	}

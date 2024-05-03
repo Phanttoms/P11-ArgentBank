@@ -9,7 +9,7 @@
 		font-weight: bold;
 		color: #2c3e50;
 		margin-right: 0.5rem;
-		&:hover {
+		&--link:hover {
 			text-decoration: underline;
 		}
 		&--image {
@@ -31,3 +31,7 @@
 		}
 	}
 }
+
+// .header__logo--link:hover {
+// 	text-decoration: underline;
+// }

@@ -27,21 +27,25 @@ export default function Header() {
 				<h1 className="header__logo--title">Argent Bank</h1>
 			</Link>
 			{token ? (
-				<div>
-					{profile && profile.userName && (
-						<NavLink to="/user">
+				<div className="header__logo">
+					{profile.userName && (
+						<NavLink to="/user" className="header__logo header__logo--link">
 							<i className="fa fa-user-circle"></i>
 							{profile.userName}
 						</NavLink>
 					)}
 
-					<NavLink to="/login" onClick={handleLogout}>
+					<NavLink
+						to="/login"
+						className="header__logo header__logo--link"
+						onClick={handleLogout}
+					>
 						<i className="fa fa-sign-out"></i>
 						Sign Out
 					</NavLink>
 				</div>
 			) : (
-				<NavLink className="header__logo" to="/login">
+				<NavLink className="header__logo header__logo--link" to="/login">
 					<i className="fa fa-user-circle"></i>
 					Sign In
 				</NavLink>

@@ -37,3 +37,34 @@ export const fetchUserData = async (token, dispatch, navigate) => {
 		navigate("/login");
 	}
 };
+
+export const editUserName = async (
+	newUserName,
+	token,
+	dispatch,
+	setError,
+	setToggleEdit
+) => {
+	if (!newUserName) {
+		setError("The field cannot be empty.");
+		return;
+	}
+	try {
+		const response = await fetch("http://localhost:3001/api/v1/user/profile", {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+			body: JSON.stringify({ userName: newUserName }),
+		});
+		if (!response) {
+			throw new Error("Échec de la mise à jour du nom d'utilisateur");
+		}
+		const data = await response.json();
+		dispatch(setGetProfile({ data }));
+		setToggleEdit(false);
+	} catch (error) {
+		console.log(error);
+	}
+};

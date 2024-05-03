@@ -11,6 +11,7 @@ const profileReducers = createSlice({
 	reducers: {
 		setGetProfile(state, action) {
 			const { email, firstName, lastName, userName } = action.payload.data.body;
+			console.log("Données du profil récupérées :", action.payload.data.body);
 			state.email = email;
 			state.firstName = firstName;
 			state.lastName = lastName;

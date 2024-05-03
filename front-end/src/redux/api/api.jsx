@@ -1,4 +1,5 @@
 import { loginSuccess } from "../reducers/authReducers";
+import { setGetProfile } from "../reducers/profileReducers";
 
 export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
 	try {
@@ -17,5 +18,22 @@ export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
 	} catch (error) {
 		console.log(error);
 		alert("Nom d'utilisateur ou mot de passe incorrect");
+	}
+};
+
+export const fetchUserData = async (token, dispatch, navigate) => {
+	try {
+		const response = await fetch("http://localhost:3001/api/v1/user/profile", {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		const data = await response.json();
+		dispatch(setGetProfile({ data }));
+	} catch (error) {
+		console.log(error);
+		localStorage.removeItem("token");
+		navigate("/login");
 	}
 };

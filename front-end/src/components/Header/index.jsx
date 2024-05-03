@@ -1,15 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/argentBankLogo.png";
 import "../Header/_header.scss";
 
 // Redux
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/reducers/authReducers";
 
 export default function Header() {
 	const token = useSelector((state) => state.auth.token);
 	const profile = useSelector((state) => state.profile);
-	console.log("Contenu du profil :", profile);
 	const dispatch = useDispatch();
 
 	const handleLogout = () => {

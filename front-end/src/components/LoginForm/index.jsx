@@ -1,5 +1,9 @@
 import "../LoginForm/_loginForm.scss";
 
+// Components
+import Button from "../../components/Button";
+import InputText from "../../components/InputText";
+
 // Redux
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -24,31 +28,28 @@ export default function LoginForm() {
 			<i className="fa fa-user-circle login__icon"></i>
 			<h1>Sign In</h1>
 			<form className="login__form" onSubmit={handleSubmit}>
-				<div className="login__form--wrapper">
-					<label htmlFor="username">E-mail</label>
-					<input
-						type="text"
-						id="username"
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-				</div>
-				<div className="login__form--wrapper">
-					<label htmlFor="password">Password</label>
-					<input
-						type="password"
-						id="password"
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</div>
-				<div className="login__form--remember">
-					<input
-						type="checkbox"
-						id="remember-me"
-						onChange={(e) => setCheckBox(!checkBox)}
-					/>
-					<label htmlFor="remember-me">Remember me</label>
-				</div>
-				<button className="login__form--button">Sign In</button>
+				<InputText
+					className="login__form--wrapper"
+					label="E-mail"
+					id="email"
+					type="text"
+					onChange={(e) => setEmail(e.target.value)}
+				/>
+				<InputText
+					className="login__form--wrapper"
+					label="Password"
+					id="password"
+					type="password"
+					onChange={(e) => setPassword(e.target.value)}
+				/>
+				<InputText
+					className="login__form--remember"
+					label="Remember me"
+					id="remember-me"
+					type="checkbox"
+					onChange={(e) => setCheckBox(!checkBox)}
+				/>
+				<Button className="login__form--button" text="Sign-in" />
 			</form>
 		</section>
 	);

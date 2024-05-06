@@ -68,11 +68,18 @@ export default function EditButton() {
 					<Button className="edit-button" text="Save" />
 				</form>
 			) : (
-				<Button
-					className="edit-button"
-					onClick={() => setToggleEdit(true)}
-					text="Edit UserName"
-				/>
+				<>
+					<h1>
+						Welcome back
+						<br />
+						{profile.firstName} {profile.lastName} !
+					</h1>
+					<Button
+						className="edit-button"
+						onClick={() => setToggleEdit(true)}
+						text="Edit UserName"
+					/>
+				</>
 			)}
 		</div>
 	);

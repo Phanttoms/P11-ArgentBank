@@ -218,6 +218,11 @@ a {
 // 	padding: 0;
 // }
 
+.account-test {
+	display: flex;
+	flex-direction: column;
+}
+
 .account {
 	display: flex;
 	justify-content: space-between;

@@ -1,35 +1,38 @@
 // Components
 import Header from "../../components/Header";
-// import EditButton from "../../components/EditButton";
 import InputText from "../../components/InputText";
 import Button from "../../components/Button";
 import Footer from "../../components/Footer";
 
 // Redux
-import { fetchUserData } from "../../redux/api/api";
+import { fetchUserData, editUserName } from "../../redux/api/api";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { editUserName } from "../../redux/api/api";
 
 export default function User() {
-	// test
-	const profile = useSelector((state) => state.profile);
+	const { userName, firstName, lastName } = useSelector(
+		(state) => state.profile
+	);
 	const token = useSelector((state) => state.auth.token);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	// test
 	const [toggleEdit, setToggleEdit] = useState(false);
-	const [newName, setNewName] = useState(profile.userName);
+	const [newName, setNewName] = useState(userName);
 
-	// test
 	useEffect(() => {
-		setNewName(profile.userName);
-		setToggleEdit(false);
-	}, [profile.userName]);
+		setNewName(userName);
+	}, [userName]);
 
-	// test
+	useEffect(() => {
+		if (token) {
+			fetchUserData(token, dispatch, navigate);
+		} else {
+			navigate("/login");
+		}
+	}, [dispatch, navigate, token]);
+
 	const handleEditName = async (e) => {
 		e.preventDefault();
 		if (!newName) {
@@ -43,14 +46,6 @@ export default function User() {
 			console.log(error);
 		}
 	};
-
-	useEffect(() => {
-		if (token) {
-			fetchUserData(token, dispatch, navigate);
-		} else {
-			navigate("/login");
-		}
-	}, [dispatch, navigate, token]);
 
 	return (
 		<>
@@ -73,14 +68,14 @@ export default function User() {
 								label="First name: "
 								id="firstName"
 								type="text"
-								value={profile.firstName}
+								value={firstName}
 								readOnly
 							/>
 							<InputText
 								label="Last name: "
 								id="lastName"
 								type="text"
-								value={profile.lastName}
+								value={lastName}
 								readOnly
 							/>
 							<br />
@@ -91,7 +86,7 @@ export default function User() {
 							<h1>
 								Welcome back
 								<br />
-								{profile.firstName} {profile.lastName} !
+								{firstName} {lastName} !
 							</h1>
 							<Button
 								className="edit-button"

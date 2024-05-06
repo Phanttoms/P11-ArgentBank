@@ -268,10 +268,16 @@ a {
 	padding: 10px;
 }
 
-.user__header {
-	color: #fff;
-	margin-bottom: 2rem;
+.readOnly {
+	background-color: #f2f2f2; /* Couleur de fond grise */
+	color: #999; /* Couleur du texte grisé */
+	cursor: not-allowed; /* Curseur interdit */
 }
+
+// .user__header {
+// 	color: #fff;
+// 	margin-bottom: 2rem;
+// }
 
 .transaction-button {
 	display: block;

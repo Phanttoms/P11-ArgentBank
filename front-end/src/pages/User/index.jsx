@@ -1,3 +1,6 @@
+// style
+import "../User/_user.scss";
+
 // Components
 import Header from "../../components/Header";
 import InputText from "../../components/InputText";
@@ -47,16 +50,22 @@ export default function User() {
 		}
 	};
 
+	const handleCancelEdit = () => {
+		setNewName(userName);
+		setToggleEdit(false);
+	};
+
 	return (
 		<>
 			<Header />
 			<main className={`main ${toggleEdit ? "" : "bg-dark"}`}>
 				<div className="user__header">
 					{toggleEdit ? (
-						<form onSubmit={handleEditName}>
-							<h2>Edit user info</h2>
+						<form onSubmit={handleEditName} className="user__header__form">
+							<h1 className="user__header__form--editTitle">Edit user info</h1>
 							<InputText
-								label="User name: "
+								label="User name:"
+								className="user__header__form--input"
 								id="username"
 								type="text"
 								onChange={(e) => {
@@ -65,31 +74,42 @@ export default function User() {
 								value={newName}
 							/>
 							<InputText
-								label="First name: "
+								label="First name:"
+								className="user__header__form--input"
+								input="readOnly"
 								id="firstName"
 								type="text"
 								value={firstName}
 								readOnly
 							/>
 							<InputText
-								label="Last name: "
+								label="Last name:"
+								className="user__header__form--input"
+								input="readOnly"
 								id="lastName"
 								type="text"
 								value={lastName}
 								readOnly
 							/>
 							<br />
-							<Button className="edit-button" text="Save" />
+							<div className="user__header__form--buttons">
+								<Button className="user__header__form--button" text="Save" />
+								<Button
+									className="user__header__form--button"
+									onClick={handleCancelEdit}
+									text="Cancel"
+								/>
+							</div>
 						</form>
 					) : (
 						<>
-							<h1>
+							<h1 className="user__header__form--title">
 								Welcome back
 								<br />
 								{firstName} {lastName} !
 							</h1>
 							<Button
-								className="edit-button"
+								className="user__header__form--button"
 								onClick={() => setToggleEdit(true)}
 								text="Edit UserName"
 							/>

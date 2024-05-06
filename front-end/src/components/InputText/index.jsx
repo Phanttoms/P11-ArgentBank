@@ -1,5 +1,6 @@
 export default function InputText({
 	className,
+	input,
 	label,
 	id,
 	type,
@@ -16,6 +17,7 @@ export default function InputText({
 				onChange={onChange}
 				value={value}
 				readOnly={readOnly}
+				className={input}
 			/>
 		</div>
 	);

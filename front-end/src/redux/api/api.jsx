@@ -17,7 +17,7 @@ export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
 		}
 	} catch (error) {
 		console.log(error);
-		alert("Nom d'utilisateur ou mot de passe incorrect");
+		alert("E-mail or password incorrect.");
 	}
 };
 
@@ -53,7 +53,7 @@ export const editUserName = async (newName, token, dispatch, setError) => {
 			body: JSON.stringify({ userName: newName }),
 		});
 		if (!response) {
-			throw new Error("Échec de la mise à jour du nom d'utilisateur");
+			throw new Error("Update user name fail.");
 		}
 		const data = await response.json();
 		dispatch(setGetProfile({ data }));

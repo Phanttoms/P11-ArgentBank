@@ -16,9 +16,8 @@ const profileReducers = createSlice({
 			state.lastName = lastName;
 			state.userName = userName;
 		},
-		resetProfile: () => {},
 	},
 });
 
-export const { setGetProfile, resetProfile } = profileReducers.actions;
+export const { setGetProfile } = profileReducers.actions;
 export default profileReducers.reducer;

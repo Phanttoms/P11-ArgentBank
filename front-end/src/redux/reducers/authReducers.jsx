@@ -17,12 +17,6 @@ const authReducers = createSlice({
 			state.token = action.payload.token;
 			state.error = null;
 		},
-		loginFailure(state, action) {
-			state.isLoggedIn = false;
-			state.user = null;
-			state.token = null;
-			state.error = action.payload;
-		},
 		logout(state) {
 			state.isLoggedIn = false;
 			state.user = null;
@@ -33,5 +27,5 @@ const authReducers = createSlice({
 	},
 });
 
-export const { loginSuccess, loginFailure, logout } = authReducers.actions;
+export const { loginSuccess, logout } = authReducers.actions;
 export default authReducers.reducer;

@@ -1,5 +1,5 @@
-import { loginSuccess } from "../reducers/authReducers";
-import { setGetProfile } from "../reducers/profileReducers";
+import { loginSuccess } from "../redux/reducers/authReducers";
+import { setGetProfile } from "../redux/reducers/profileReducers";
 
 export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
 	try {

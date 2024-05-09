@@ -9,7 +9,7 @@ import Account from "../../components/Account";
 import Footer from "../../components/Footer";
 
 // Redux
-import { fetchUserData, editUserName } from "../../redux/api/api";
+import { fetchUserData, editUserName } from "../../api/api";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";

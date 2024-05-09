@@ -8,7 +8,7 @@ import InputText from "../../components/InputText";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchHandleLogin } from "../../redux/api/api";
+import { fetchHandleLogin } from "../../api/api";
 
 export default function LoginForm() {
 	const dispatch = useDispatch();

@@ -10,7 +10,6 @@ import {
 } from "redux-persist";
 import sessionStorage from "redux-persist/lib/storage/session";
 import { combineReducers } from "redux";
-
 import { configureStore } from "@reduxjs/toolkit";
 import authReducers from "../redux/reducers/authReducers.jsx";
 import profileReducers from "../redux/reducers/profileReducers.jsx";

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	isLoggedIn: false,
-	token: localStorage.getItem("token"),
+	token: null,
 	user: null,
 	error: null,
 };
@@ -22,7 +22,6 @@ const authReducers = createSlice({
 			state.user = null;
 			state.token = null;
 			state.error = null;
-			localStorage.removeItem("token");
 		},
 	},
 });

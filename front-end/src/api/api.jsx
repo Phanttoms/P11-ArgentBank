@@ -12,7 +12,6 @@ export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
 		const token = data.body.token;
 		if (token) {
 			dispatch(loginSuccess({ token }));
-			localStorage.setItem("token", token);
 			navigate("/user");
 		}
 	} catch (error) {
@@ -33,7 +32,6 @@ export const fetchUserData = async (token, dispatch, navigate) => {
 		dispatch(setGetProfile({ data }));
 	} catch (error) {
 		console.log(error);
-		localStorage.removeItem("token");
 		navigate("/login");
 	}
 };

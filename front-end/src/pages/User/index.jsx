@@ -4,7 +4,6 @@ import "../User/_user.scss";
 // Components
 import Header from "../../components/Header";
 import InputText from "../../components/InputText";
-import Button from "../../components/Button";
 import Account from "../../components/Account";
 import Footer from "../../components/Footer";
 
@@ -59,7 +58,7 @@ export default function User() {
 	return (
 		<>
 			<Header />
-			<main className={`main ${toggleEdit ? "" : "bg-dark"}`}>
+			<main className="main bg-dark">
 				<div className="user__header">
 					{toggleEdit ? (
 						<form onSubmit={handleEditName} className="user__header__form">
@@ -94,26 +93,28 @@ export default function User() {
 							/>
 							<br />
 							<div className="user__header__form--buttons">
-								<Button className="user__header__form--button" text="Save" />
-								<Button
+								<button className="user__header__form--button">save</button>
+								<button
 									className="user__header__form--button"
 									onClick={handleCancelEdit}
-									text="Cancel"
-								/>
+								>
+									cancel
+								</button>
 							</div>
 						</form>
 					) : (
 						<>
-							<h1 className="user__header__form--title">
+							<h1 className="user__header__form--editTitle">
 								Welcome back
 								<br />
 								{firstName} {lastName} !
 							</h1>
-							<Button
+							<button
 								className="user__header__form--button"
 								onClick={() => setToggleEdit(true)}
-								text="Edit UserName"
-							/>
+							>
+								Edit UserName
+							</button>
 						</>
 					)}
 				</div>

@@ -10,10 +10,7 @@ export default function Account({ title, amount, description }) {
 				<p className="account__content--description">{description}</p>
 			</div>
 			<div className="account__transaction">
-				<Button
-					className="account__transaction--button"
-					text="View transactions"
-				/>
+				<Button className="button" text="View transactions" />
 			</div>
 		</section>
 	);

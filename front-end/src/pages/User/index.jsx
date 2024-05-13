@@ -4,6 +4,7 @@ import "../User/_user.scss";
 // Components
 import Header from "../../components/Header";
 import InputText from "../../components/InputText";
+import Button from "../../components/Button";
 import Account from "../../components/Account";
 import Footer from "../../components/Footer";
 
@@ -93,13 +94,12 @@ export default function User() {
 							/>
 							<br />
 							<div className="user__header__form--buttons">
-								<button className="user__header__form--button">save</button>
-								<button
-									className="user__header__form--button"
+								<Button className="buttonRound" text="Save" />
+								<Button
+									className="buttonRound"
 									onClick={handleCancelEdit}
-								>
-									cancel
-								</button>
+									text="Cancel"
+								/>
 							</div>
 						</form>
 					) : (
@@ -109,12 +109,11 @@ export default function User() {
 								<br />
 								{firstName} {lastName} !
 							</h1>
-							<button
-								className="user__header__form--button"
+							<Button
+								className="buttonRound"
 								onClick={() => setToggleEdit(true)}
-							>
-								Edit UserName
-							</button>
+								text="Edit UserName"
+							/>
 						</>
 					)}
 				</div>

@@ -49,7 +49,7 @@ export default function LoginForm() {
 					type="checkbox"
 					onChange={(e) => setCheckBox(!checkBox)}
 				/>
-				<Button className="login__form--button" text="Sign-in" />
+				<Button className="button" text="Sign-in" />
 			</form>
 		</section>
 	);

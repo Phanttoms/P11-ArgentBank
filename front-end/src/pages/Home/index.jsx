@@ -1,8 +1,8 @@
 // Style
 import "../../components/Feature/_feature.scss";
-import chat from "../../assets/images/icon-chat.png";
-import money from "../../assets/images/icon-money.png";
-import security from "../../assets/images/icon-security.png";
+import chat from "../../assets/images/icon-chat.webp";
+import money from "../../assets/images/icon-money.webp";
+import security from "../../assets/images/icon-security.webp";
 
 // Components
 import Header from "../../components/Header";

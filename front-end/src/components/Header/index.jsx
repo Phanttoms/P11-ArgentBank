@@ -1,4 +1,4 @@
-import logo from "../../assets/images/argentBankLogo.png";
+import logo from "../../assets/images/argentBankLogo.webp";
 import "../Header/_header.scss";
 
 // Redux

@@ -186,7 +186,7 @@ paths:
         "200":
           description: Transaction updated successfully
           schema:
-            $ref: "#/definitions/ApiResponse"
+            $ref: "#/definitions/Transaction"
         "400":
           description: Invalid Fields
         "404":

@@ -1,23 +1,14 @@
-export default function InputText({
-	className,
-	input,
-	label,
-	id,
-	type,
-	onChange,
-	value,
-	readOnly,
-}) {
+export default function InputText(props) {
 	return (
-		<div className={className}>
-			<label htmlFor={id}>{label}</label>
+		<div className={props.className}>
+			<label htmlFor={props.id}>{props.label}</label>
 			<input
-				type={type}
-				id={id}
-				onChange={onChange}
-				value={value}
-				readOnly={readOnly}
-				className={input}
+				type={props.type}
+				id={props.id}
+				onChange={props.onChange}
+				value={props.value}
+				readOnly={props.readOnly}
+				className={props.input}
 			/>
 		</div>
 	);

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "../Feature/_feature.scss";
 
 export default function Feature(props) {
@@ -14,10 +13,3 @@ export default function Feature(props) {
 		</div>
 	);
 }
-
-Feature.prototype = {
-	icon: PropTypes.node.isRequired,
-	iconType: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
-	text: PropTypes.string.isRequired,
-};

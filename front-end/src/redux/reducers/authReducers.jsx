@@ -17,6 +17,12 @@ const authReducers = createSlice({
 			state.token = action.payload.token;
 			state.error = null;
 		},
+		loginError(state) {
+			state.isLoggedIn = false;
+			state.user = null;
+			state.token = null;
+			state.error = "E-mail or Password incorect";
+		},
 		logout(state) {
 			state.isLoggedIn = false;
 			state.user = null;
@@ -26,5 +32,5 @@ const authReducers = createSlice({
 	},
 });
 
-export const { loginSuccess, logout } = authReducers.actions;
+export const { loginSuccess, logout, loginError } = authReducers.actions;
 export default authReducers.reducer;

@@ -65,11 +65,9 @@ paths:
         - User Module
       summary: User Profile API
       description: API for fetching a user profile
-      #produces:
-      # - application/json
       responses:
         "200":
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: "#/definitions/ApiResponse"
         "400":
@@ -94,14 +92,13 @@ paths:
         - application/json
       responses:
         "200":
-          description: User profile retrieved successully
+          description: User profile updated successfully
           schema:
             $ref: "#/definitions/ApiResponse"
         "400":
           description: Invalid Fields
         "500":
           description: Internal Server Error
-  # Ajout transaction ---------------------------------------------------------------------------------------------------
   /transactions/{accountId}/current-month:
     get:
       security:
@@ -134,8 +131,7 @@ paths:
           description: Invalid Fields
         "500":
           description: Internal Server Error
-
-  /transaction/{transactionId}:
+  /transaction/{transactionId}/details:
     get:
       security:
         - Bearer: []
@@ -155,12 +151,11 @@ paths:
         "200":
           description: Transaction details retrieved successfully
           schema:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/TransactionDetails"
         "404":
           description: Transaction not found
         "500":
           description: Internal Server Error
-
     put:
       security:
         - Bearer: []
@@ -179,21 +174,20 @@ paths:
           description: Updated transaction information
           required: true
           schema:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/TransactionDetailsUpdate"
       produces:
         - application/json
       responses:
         "200":
           description: Transaction updated successfully
           schema:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/TransactionDetailsUpdate"
         "400":
           description: Invalid Fields
         "404":
           description: Transaction not found
         "500":
           description: Internal Server Error
-
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -254,17 +248,41 @@ definitions:
     properties:
       id:
         type: string
-        description: ID of the transaction
+        description: Transaction ID
       accountId:
         type: string
         description: ID of the account associated with the transaction
       amount:
         type: number
-        description: Amount of the transaction
+        description: Transaction amount
+      balance:
+        type: number
+        description: Balance after the transaction
       date:
         type: string
         format: date
-        description: Date of the transaction
+        description: Transaction date
       description:
         type: string
-        description: Description of the transaction
+        description: Description
+  TransactionDetails:
+    type: object
+    properties:
+      type:
+        type: string
+        description: Type of the transaction
+      category:
+        type: string
+        description: Category of the transaction
+      note:
+        type: string
+        description: Additional note for the transaction
+  TransactionDetailsUpdate:
+    type: object
+    properties:
+      category:
+        type: string
+        description: Category of the transaction
+      note:
+        type: string
+        description: Additional note for the transaction

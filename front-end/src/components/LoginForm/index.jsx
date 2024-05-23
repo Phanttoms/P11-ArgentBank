@@ -5,14 +5,17 @@ import Button from "../../components/Button";
 import InputText from "../../components/InputText";
 
 // Redux
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchHandleLogin } from "../../api/api";
 
 export default function LoginForm() {
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const error = useSelector((state) => state.auth.error);
+	const token = useSelector((state) => state.auth.token);
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -20,8 +23,14 @@ export default function LoginForm() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await fetchHandleLogin(email, password, dispatch, navigate);
+		await fetchHandleLogin(email, password, dispatch);
 	};
+
+	useEffect(() => {
+		if (token) {
+			navigate("/user");
+		}
+	}, [token, navigate]);
 
 	return (
 		<section className="login">
@@ -50,6 +59,7 @@ export default function LoginForm() {
 					onChange={(e) => setCheckBox(!checkBox)}
 				/>
 				<Button className="button" text="Sign-in" />
+				{error && <p className="login__error">{error}</p>}
 			</form>
 		</section>
 	);

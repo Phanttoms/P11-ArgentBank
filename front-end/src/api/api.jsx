@@ -1,7 +1,7 @@
-import { loginSuccess } from "../redux/reducers/authReducers";
+import { loginError, loginSuccess } from "../redux/reducers/authReducers";
 import { setGetProfile } from "../redux/reducers/profileReducers";
 
-export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
+export const fetchHandleLogin = async (email, password, dispatch) => {
 	try {
 		const response = await fetch("http://localhost:3001/api/v1/user/login", {
 			method: "POST",
@@ -9,18 +9,18 @@ export const fetchHandleLogin = async (email, password, dispatch, navigate) => {
 			body: JSON.stringify({ email, password }),
 		});
 		const data = await response.json();
-		const token = data.body.token;
+		const token = data.body?.token;
 		if (token) {
 			dispatch(loginSuccess({ token }));
-			navigate("/user");
+		} else if (!token) {
+			dispatch(loginError());
 		}
 	} catch (error) {
 		console.log(error);
-		alert("E-mail or password incorrect.");
 	}
 };
 
-export const fetchUserData = async (token, dispatch, navigate) => {
+export const fetchUserData = async (token, dispatch) => {
 	try {
 		const response = await fetch("http://localhost:3001/api/v1/user/profile", {
 			method: "POST",
@@ -32,7 +32,6 @@ export const fetchUserData = async (token, dispatch, navigate) => {
 		dispatch(setGetProfile({ data }));
 	} catch (error) {
 		console.log(error);
-		navigate("/login");
 	}
 };
 
